@@ -13,18 +13,18 @@ Route::get('/', function () {
 // Route::view('dashboard', 'dashboard')
 //     ->middleware(['auth', 'verified'])
 //     ->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('dashboard', [medicineController::class, 'dashboard'])
+        ->name('dashboard');
 
-Route::get('dashboard', [medicineController:: class, 'dashboard'])
-    ->middleware(['auth'], 'verified')
-    ->name('dashboard');
+    Route::get('medicines', [medicineController::class, 'medicines'])
+        ->name('medicines');
 
-Route::get('medicines', [medicineController:: class, 'medicines'])
-    ->middleware(['auth'], 'verified')
-    ->name('medicines');
+    Route::get('patients', [medicineController::class, 'patients'])
+        ->name('patients');
+});
 
-Route::get('patients', [medicineController:: class, 'patients'])
-    ->middleware(['auth'], 'verified')
-    ->name('patients');
+
 
 
 Route::middleware(['auth'])->group(function () {
@@ -35,4 +35,4 @@ Route::middleware(['auth'])->group(function () {
     Route::get('settings/appearance', Appearance::class)->name('settings.appearance');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

@@ -3,21 +3,111 @@
         <x-mary-header title="Dashboard" icon="o-beaker" icon-classes="bg-error text-white rounded-full  w-7 h-7"
             style="margin-bottom:0%" separator />
 
-        <div class="grid grid-cols-1 md:grid-cols-[2fr_2fr] lg:grid-cols-[1fr_1fr_1fr_1fr] my-4 gap-6 ">
-            <x-mary-stat title="Messages" value="44" icon="o-envelope" tooltip="Hello" color="text-error"
-                tooltip-bottom="There" class="bg-base-300" />
+        @php
+            $slides = [
+                [
+                    'image' => 'https://picsum.photos/id/1015/800/400',
+                    'title' => 'Front end developers',
+                    'description' => 'We love last week frameworks.',
+                    'url' => '/docs/installation',
+                    'urlText' => 'Get started',
+                ],
+                [
+                    'image' => 'https://picsum.photos/id/1025/800/400',
+                    'title' => 'Full stack developers',
+                    'description' => 'Where burnout is just a fancy term for Tuesday.',
+                ],
+                [
+                    'image' => 'https://picsum.photos/id/1037/800/400',
+                    'title' => 'Full stack developers',
+                    'description' => 'Where burnout is just a fancy term for Tuesday.',
+                ],
+                [
+                    'image' => 'https://picsum.photos/id/1037/800/400',
+                    'title' => 'Full stack developers',
+                    'description' => 'Where burnout is just a fancy term for Tuesday.',
+                ],
+            ];
 
-            <x-mary-stat title="Sales" description="This month" value="22.124" icon="o-arrow-trending-up"
-                tooltip-bottom="There" color="text-error" class="bg-base-300" />
+        @endphp
 
-            <x-mary-stat title="Lost" description="This month" value="34" icon="o-arrow-trending-down"
-                tooltip-bottom="Ops!" color="text-error" class="bg-base-300" />
+        <x-mary-carousel :slides="$slides" class="!h-72" />
+        <div class="flex flex-col md:flex-row gap-5">
+            <div class="bg-base-300 p-5 rounded-lg w-90 flex flex-col gap-5">
+                <x-mary-stat title="Messages" value="44" icon="o-envelope" tooltip="Hello" color="text-primary" />
 
-            <x-mary-stat title="Sales" description="This month" value="22.124" icon="o-arrow-trending-down"
-                class=" bg-base-300" color="text-error" tooltip-bottom="Gosh!" />
+                <x-mary-stat title="Sales" description="This month" value="22.124" icon="o-arrow-trending-up"
+                    tooltip-bottom="There" />
+
+                <x-mary-stat title="Lost" description="This month" value="34" icon="o-arrow-trending-down"
+                    tooltip-left="Ops!" />
+
+                <x-mary-stat title="Sales" description="This month" value="22.124" icon="o-arrow-trending-down"
+                    class="text-orange-500" color="text-pink-500" tooltip-right="Gosh!" />
+            </div>
+
+            <div class="bg-base-200 min-h-screen flex my-2 p-6 rounded-lg" x-data="{loading:true}">
+                <div class="grid grid-cols-1 md:grid-cols-[3fr_3fr] md:min-h-screen my-4 gap-6">
+                    <div class="card bg-base-100 h-100 shadow-sm">
+                        <figure>
+                            <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                                alt="Shoes" />
+                        </figure>
+                        <div class="p-6">
+                            <h2 class="card-title">
+                                Card Title
+                                <div class="badge badge-secondary">NEW</div>
+                            </h2>
+                            <p>A card component has a figure, a body part, and inside body there are title and actions
+                                parts
+                            </p>
+                            <div class="card-actions justify-end">
+                                <div class="badge badge-outline">Fashion</div>
+                                <div class="badge badge-outline">Products</div>
+                            </div>
+                        </div>
+
+                        <div class="card-body mt-2">
+
+                        </div>
+                    </div>
+
+                    <div class="card bg-base-100 h-100 shadow-sm">
+                        <figure>
+                            <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                                alt="Shoes" />
+                        </figure>
+                        <div class="p-6">
+                            <h2 class="card-title">
+                                Card Title
+                                <div class="badge badge-secondary">NEW</div>
+                            </h2>
+                            <p>A card component has a figure, a body part, and inside body there are title and actions
+                                parts
+                            </p>
+                            <div class="card-actions justify-end">
+                                <div class="badge badge-outline">Fashion</div>
+                                <div class="badge badge-outline">Products</div>
+                            </div>
+                        </div>
+
+                        <div class="card-body mt-2">
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
-        @livewire('chart')
-        <div class="join flex justify-end my-8">
+
+
+
+
+
+
+
+        <!-- @livewire(name: 'chart') -->
+        <!-- <div class="join flex justify-end my-8">
             <div>
                 <div>
                     <input class="input w-75 join-item" placeholder="Search" />
@@ -29,54 +119,9 @@
                 <option>Drama</option>
                 <option>Action</option>
             </select>
-        </div>
+        </div> -->
         <div class="overflow-x-auto bg-base-200 rounded-lg">
-            <table class="table">
-                <!-- head -->
-                <thead>
-                    <tr>
-                        <th>
 
-                        </th>
-                        <th>Name</th>
-                        <th>Job</th>
-                        <th>Favorite Color</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- row 1 -->
-                    <tr>
-                        <th>
-
-                        </th>
-                        <td>
-                            <div class="flex items-center gap-3">
-                                <div class="avatar">
-                                    <div class="mask mask-squircle h-12 w-12">
-                                        <img src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                                            alt="Avatar Tailwind CSS Component" />
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="font-bold">Hart Hagerty</div>
-                                    <div class="text-sm opacity-50">United States</div>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            Zemlak, Daniel and Leannon
-                            <br />
-                            <span class="badge badge-ghost badge-sm">Desktop Support Technician</span>
-                        </td>
-                        <td>Purple</td>
-                        <th>
-                            <x-mary-button label="Hi!" class="btn-error text-white" />
-                        </th>
-                    </tr>
-                </tbody>
-                <!-- foot -->
-            </table>
         </div>
     </div>
 </x-layouts.app>
