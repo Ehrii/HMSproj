@@ -1,27 +1,42 @@
-<x-layouts.app :title="__('Dashboard')">
+<x-layouts.app>
     <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
-        <div class="grid grid-cols-[1fr_1fr_1fr_1fr]">
-            <x-mary-stat title="Messages" value="44" icon="o-envelope" tooltip="Hello" color="text-primary"
-                tooltip-bottom="There" />
+        <x-mary-header title="Dashboard" icon="o-beaker" icon-classes="bg-error text-white rounded-full  w-7 h-7"
+            style="margin-bottom:0%" separator />
+
+        <div class="grid grid-cols-1 md:grid-cols-[2fr_2fr] lg:grid-cols-[1fr_1fr_1fr_1fr] my-4 gap-6 ">
+            <x-mary-stat title="Messages" value="44" icon="o-envelope" tooltip="Hello" color="text-error"
+                tooltip-bottom="There" class="bg-base-300" />
 
             <x-mary-stat title="Sales" description="This month" value="22.124" icon="o-arrow-trending-up"
-                tooltip-bottom="There" />
+                tooltip-bottom="There" color="text-error" class="bg-base-300" />
 
             <x-mary-stat title="Lost" description="This month" value="34" icon="o-arrow-trending-down"
-                tooltip-bottom="Ops!" />
+                tooltip-bottom="Ops!" color="text-error" class="bg-base-300" />
 
             <x-mary-stat title="Sales" description="This month" value="22.124" icon="o-arrow-trending-down"
-                class="text-orange-500" color="text-pink-500" tooltip-bottom="Gosh!" />
+                class=" bg-base-300" color="text-error" tooltip-bottom="Gosh!" />
         </div>
-        <div class="overflow-x-auto">
+        @livewire('chart')
+        <div class="join flex justify-end my-8">
+            <div>
+                <div>
+                    <input class="input w-75 join-item" placeholder="Search" />
+                </div>
+            </div>
+            <select class="select join-item w-25 ">
+                <option disabled selected>Filter</option>
+                <option>Sci-fi</option>
+                <option>Drama</option>
+                <option>Action</option>
+            </select>
+        </div>
+        <div class="overflow-x-auto bg-base-200 rounded-lg">
             <table class="table">
                 <!-- head -->
                 <thead>
                     <tr>
                         <th>
-                            <label>
-                                <input type="checkbox" class="checkbox" />
-                            </label>
+
                         </th>
                         <th>Name</th>
                         <th>Job</th>
@@ -33,9 +48,7 @@
                     <!-- row 1 -->
                     <tr>
                         <th>
-                            <label>
-                                <input type="checkbox" class="checkbox" />
-                            </label>
+
                         </th>
                         <td>
                             <div class="flex items-center gap-3">
@@ -58,113 +71,11 @@
                         </td>
                         <td>Purple</td>
                         <th>
-                            <button class="btn btn-ghost btn-xs">details</button>
-                        </th>
-                    </tr>
-                    <!-- row 2 -->
-                    <tr>
-                        <th>
-                            <label>
-                                <input type="checkbox" class="checkbox" />
-                            </label>
-                        </th>
-                        <td>
-                            <div class="flex items-center gap-3">
-                                <div class="avatar">
-                                    <div class="mask mask-squircle h-12 w-12">
-                                        <img src="https://img.daisyui.com/images/profile/demo/3@94.webp"
-                                            alt="Avatar Tailwind CSS Component" />
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="font-bold">Brice Swyre</div>
-                                    <div class="text-sm opacity-50">China</div>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            Carroll Group
-                            <br />
-                            <span class="badge badge-ghost badge-sm">Tax Accountant</span>
-                        </td>
-                        <td>Red</td>
-                        <th>
-                            <button class="btn btn-ghost btn-xs">details</button>
-                        </th>
-                    </tr>
-                    <!-- row 3 -->
-                    <tr>
-                        <th>
-                            <label>
-                                <input type="checkbox" class="checkbox" />
-                            </label>
-                        </th>
-                        <td>
-                            <div class="flex items-center gap-3">
-                                <div class="avatar">
-                                    <div class="mask mask-squircle h-12 w-12">
-                                        <img src="https://img.daisyui.com/images/profile/demo/4@94.webp"
-                                            alt="Avatar Tailwind CSS Component" />
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="font-bold">Marjy Ferencz</div>
-                                    <div class="text-sm opacity-50">Russia</div>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            Rowe-Schoen
-                            <br />
-                            <span class="badge badge-ghost badge-sm">Office Assistant I</span>
-                        </td>
-                        <td>Crimson</td>
-                        <th>
-                            <button class="btn btn-ghost btn-xs">details</button>
-                        </th>
-                    </tr>
-                    <!-- row 4 -->
-                    <tr>
-                        <th>
-                            <label>
-                                <input type="checkbox" class="checkbox" />
-                            </label>
-                        </th>
-                        <td>
-                            <div class="flex items-center gap-3">
-                                <div class="avatar">
-                                    <div class="mask mask-squircle h-12 w-12">
-                                        <img src="https://img.daisyui.com/images/profile/demo/5@94.webp"
-                                            alt="Avatar Tailwind CSS Component" />
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="font-bold">Yancy Tear</div>
-                                    <div class="text-sm opacity-50">Brazil</div>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            Wyman-Ledner
-                            <br />
-                            <span class="badge badge-ghost badge-sm">Community Outreach Specialist</span>
-                        </td>
-                        <td>Indigo</td>
-                        <th>
-                            <button class="btn btn-ghost btn-xs">details</button>
+                            <x-mary-button label="Hi!" class="btn-error text-white" />
                         </th>
                     </tr>
                 </tbody>
                 <!-- foot -->
-                <tfoot>
-                    <tr>
-                        <th></th>
-                        <th>Name</th>
-                        <th>Job</th>
-                        <th>Favorite Color</th>
-                        <th></th>
-                    </tr>
-                </tfoot>
             </table>
         </div>
     </div>
