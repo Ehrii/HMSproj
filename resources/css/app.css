@@ -25,9 +25,50 @@
     --color-zinc-900: #171717;
     --color-zinc-950: #0a0a0a;
 
+    --color-black: #000000;
+    --color-blue: #1a4798;
+
+    --color-red: #ed1c24; /* Original red */
+    --color-red-middle: #d04b4b; /* Intermediate red */
+    --color-red-blurred: #e44b4b88; /* Blurred red (semi-transparent) */
+
+    --color-yellow: #f4c027;
+
     --color-accent: var(--color-neutral-800);
     --color-accent-content: var(--color-neutral-800);
     --color-accent-foreground: var(--color-white);
+}
+
+@layer utilities {
+    .bg-black-custom {
+        background-color: var(--color-black);
+    }
+
+    .text-black-custom {
+        color: var(--color-black);
+    }
+
+    .bg-blue-custom {
+        background-color: var(--color-blue);
+    }
+    .text-blue-custom {
+        color: var(--color-blue);
+    }
+
+    .bg-red-custom {
+        background-color: var(--color-red);
+    }
+
+    .text-red-custom {
+        color: var(--color-red);
+    }
+
+    .bg-yellow-custom {
+        background-color: var(--color-yellow);
+    }
+    .text-yellow-custom {
+        color: var(--color-yellow);
+    }
 }
 
 @layer theme {
