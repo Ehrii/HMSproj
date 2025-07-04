@@ -33,7 +33,7 @@
 
         <x-mary-carousel :slides="$slides" class="!h-72" />
         <div class="flex flex-col md:flex-row gap-5">
-            <div class="bg-base-300 p-5 rounded-lg w-90 flex flex-col gap-5">
+            <div class="bg-base-300 p-5 rounded-lg w-full md:w-90 flex flex-col gap-5">
                 <x-mary-stat title="Messages" value="44" icon="o-envelope" tooltip="Hello" color="text-primary" />
 
                 <x-mary-stat title="Sales" description="This month" value="22.124" icon="o-arrow-trending-up"
@@ -46,8 +46,8 @@
                     class="text-orange-500" color="text-pink-500" tooltip-right="Gosh!" />
             </div>
 
-            <div class="bg-base-200 min-h-screen flex my-2 p-6 rounded-lg" x-data="{loading:true}">
-                <div class="grid grid-cols-1 md:grid-cols-[3fr_3fr] md:min-h-screen my-4 gap-6">
+            <div class="bg-base-200  flex my-2 p-6 rounded-lg" x-data="{loading:true}">
+                <div class="grid grid-cols-1 md:grid-cols-[3fr_3fr]  my-4 gap-6">
                     <div class="card bg-base-100 h-100 shadow-sm">
                         <figure>
                             <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -91,7 +91,10 @@
                             </div>
                         </div>
 
-                        <div class="card-body mt-2">
+                        <div class="card-body mt-2 flex justify-end">
+                        </div>
+                    </div>
+                            <x-mary-button label="View Service" class="btn-primary " />
 
                         </div>
                     </div>
