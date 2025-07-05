@@ -4,7 +4,15 @@ use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
 use App\Http\Controllers\medicineController;
+use App\Http\Controllers\TableController;
 use Illuminate\Support\Facades\Route;
+
+// Route::get('/tables', function () {
+//     return view('tables');
+// })->name('tables');
+
+Route::get('tables', [TableController::class, 'index'])
+    ->name('table');
 
 Route::get('/', function () {
     return view('welcome');
